@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>선택자 Selector</title>
+</head>
+<style>
+    article section ul {
+        /* 하위 선택자 (태그 선택자) */
+        /* (스타일 송성) : (속성 값) */
+        color: red;
+    }
+
+     article > section ul {
+        /* 자식선택자  > */
+        /* result
+                <li>리스트1</li>
+                <li>리스트2</li>
+                <li>리스트3</li>
+        */
+        color: blue;
+     }
+
+     /* 인접 선택자 */
+     h1+h3 {
+         color: skyblue;
+         font-size: 20px;
+     }
+
+     /* 형재자매 선택자 */
+     article~article h2 {
+         color: white;
+         background-color: red;
+         padding: 5px;
+     }
+
+     p~span {
+         /* 형재자매 선택자 */
+         /* [형재자매인 선택자]~[스타일 적용함 선택자] */
+         color: orange;
+     }
+
+</style>
+
+<body>
+    <header>
+        <div class="logo">로고</div>
+        <ul>
+            <li>메뉴</li>
+            <li>메뉴2</li>
+        </ul>
+    </header>
+    <article>
+        <h1>제목</h1>
+        <h3>성명</h3>
+        <section>
+            <h2>부제목</h2>
+            <ul>
+                <li>리스트1</li>
+                <li>리스트2</li>
+                <li>리스트3</li>
+            </ul>
+        </section>
+        <aside>
+            <h2>사이드바제목</h2>
+            <h3>성명</h3>
+            <section>
+                <ul>
+                    <li>사이드 메뉴1</li>
+                    <li>사이드 메뉴2</li>
+                    <li>사이드 메뉴3</li>
+                </ul>
+            </section>
+        </aside>
+    </article>
+
+    <article>
+        <h1>제목1</h1>
+
+        <h2>소제목1</h2>
+        <section>내용1</section>
+
+        <h2>소제목2</h2>
+        <section>내용2</section>
+
+        <h2>소제목3</h2>
+        <section>내용3</section>
+
+        <p>p태그 형제자매 요소</p>
+        <span>span 태그 형제자매 요소</span>
+
+        <p>p태그 형제자매 요소</p>
+        <span>span 태그 형제자매 요소</span>
+
+        <p>p태그 형제자매 요소</p>
+        <span>span 태그 형제자매 요소</span>
+    </article>
+
+    <footer>
+        푸터 부분
+    </footer>
+</body>
+
+</html>
