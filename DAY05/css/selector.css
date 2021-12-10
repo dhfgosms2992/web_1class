@@ -59,13 +59,17 @@ article aside {
 section h2, 
 aside h2 {
     /* 그룹 선택자를 이용하여 값 설정 */
+    /*  부제목 사이드바 */
     font-weight: normal;
     font-size:1.4rem;
+    color:blue;
 }
 
 section ul,
 aside ul {
+    /* 리스트,사이드메뉴 */
     padding: 20px;
+    color:red;
 }
 
 footer {
