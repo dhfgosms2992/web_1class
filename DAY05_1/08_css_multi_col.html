@@ -3,6 +3,32 @@
 <head>
     <style>
        /* 여기에 작성해보세요:) */
+       .poet {
+           columns: 200px 3;
+           /*한열을 3단으로 */
+           /* column-width: 200px;
+              column-count: 3; 
+              
+            */
+
+            /*  column-rule-width: ;
+                column-rule-style ;
+                column-rule-color: ; 
+            */
+            
+           column-gap: 50px;
+           column-rule: 1px solid lightblue;
+           padding: 20px;
+           border: 1px solid gray;
+       }
+
+       h2 {
+           /* 모든열을 다사용하는것*/
+            column-span:all ; 
+
+           text-align: center;
+           margin: 40px auto;
+       }
     </style>
 </head>
 <body>
