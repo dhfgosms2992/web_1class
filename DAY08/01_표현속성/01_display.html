@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display</title>
+    <link rel="stylesheet" href="css/01_display.css">
+</head>
+<body>
+    <!-- display : inline, inline-bock -->
+    <div class="container">
+        <h1>display: inline, inline-bolock</h1>
+        <hr>
+
+        <!-- 리스트 태그는 블록 요소 -->
+        <!-- inline 과 inline-bock 으로 변경-->
+        <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JAVASCRIPT</li>
+        </ul>
+
+        <!-- none 으로 지정 -->
+        <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li class="none">JAVASCRIPT</li>
+            <li>JQUERY</li>
+        </ul>
+
+        <hr>
+        <!-- hidden 으로 지정 -->
+        <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li class="hidden">JAVASCRIPT</li>
+            <li>JQUERY</li>
+        </ul>
+    </div> <!-- container 끝  -->
+
+    <!-- display: grid; -->
+    <div class="container">
+        <h1>display : grid;</h1>
+        <hr>
+        <div class="grid-container">
+            <div class="item"><img src="img/t-shrts.jpg" alt="" width="250px"></div>
+            <div class="item"><img src="img/t-shrts1.jpg" alt="" width="250px"></div>
+            <div class="item"><img src="img/v1.jpg" alt="" width="250px"></div>
+
+            <div class="item"><img src="img/v2.jpg" alt="" width="250px"></div>
+            <div class="item"><img src="img/v3.jpg" alt="" width="250px"></div>
+            <div class="item"><img src="img/v4.jpg" alt="" width="250px"></div>
+
+            <div class="item"><img src="img/v5.jpg" alt="" width="250px"></div>
+            <div class="item"><img src="img/v6.jpg" alt="" width="250px"></div>
+            <div class="item"><img src="img/v7.jpg" alt="" width="250px"></div>
+        </div>
+    </div>
+    
+    <!-- display : flex; -->
+    <div class="container">
+        <h1>display: flex;</h1>
+        <div class="row">
+            <div class="col">
+                <img src="img/v1.jpg" alt="">
+                <img src="img/v2.jpg" alt="">
+                <img src="img/v3.jpg" alt="">
+                <img src="img/v4.jpg" alt="">
+                <img src="img/v5.jpg" alt="">
+            </div>
+
+
+            <div class="col">
+                <img src="img/v6.jpg" alt="">
+                <img src="img/v7.jpg" alt="">
+                <img src="img/v8.jpg" alt="">
+                <img src="img/v9.jpg" alt="">
+                <img src="img/v10.jpg" alt="">
+            </div>
+
+
+            <div class="col">
+                <img src="img/v11.jpg" alt="">
+                <img src="img/v12.jpg" alt="">
+                <img src="img/v13.jpg" alt="">
+                <img src="img/v1.jpg" alt="">
+                <img src="img/v2.jpg" alt="">
+                <img src="img/v2.jpg" alt="">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
