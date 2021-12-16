@@ -38,7 +38,7 @@ li:hover {
 /* grid */
 .grid-container {
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: auto auto auto ;
     background-color: royalblue;
     padding: 10px;
 }
@@ -51,6 +51,9 @@ li:hover {
     text-align: center;
 }
 
+.item img {
+    width: 100%;
+}
 
 /* flex */
 .row {
