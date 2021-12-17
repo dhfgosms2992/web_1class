@@ -1,6 +1,4 @@
-*{
-    margin: 0; padding:0; text-align: center;
-}
+*{ margin: 0; padding:0; text-align: center; }
 
 .box {
     height: 200px;
@@ -19,20 +17,10 @@
     margin: 50px auto;
 }
 
-.top-left {
-background-image: linear-gradient(to top left, #8a3ab9 45%, #fbad50 80%, #fccc63 95%);
-}
+.top-left {background-image: linear-gradient(to top left, #8a3ab9 45%, #fbad50 80%, #fccc63 95%);}
 
+.top-right {background-image: linear-gradient(to top right, #8a3ab9 45%, #fbad50 80%, #fccc63 95%);}
 
+.bottom-left {background-image: linear-gradient(to bottom left, #8a3ab9 45%, #fbad50 80%, #fccc63 95%);}
 
-.top-right {
-    background-image: linear-gradient(to top right, #8a3ab9 45%, #fbad50 80%, #fccc63 95%);
-}
-
-.bottom-left {
-    background-image: linear-gradient(to bottom left, #8a3ab9 45%, #fbad50 80%, #fccc63 95%);
-}
-
-.bottom-right {
-    background-image: linear-gradient(to bottom right, #8a3ab9 45%, #fbad50 80%, #fccc63 95%);
-}
+.bottom-right {background-image: linear-gradient(to bottom right, #8a3ab9 45%, #fbad50 80%, #fccc63 95%);}
