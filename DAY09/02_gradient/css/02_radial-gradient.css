@@ -1,0 +1,41 @@
+    *{margin:0; padding: 0; text-align: center;}
+
+    .box {
+        width: 900px;
+        height: 600px;
+        margin: 0 auto;
+    }
+
+    /* 모양 */
+    .ellips {background: radial-gradient(ellipse, #8a3ab9 0%, white 50%, #f5cd79 100%);}
+    .circle {background: radial-gradient(circle closest-side at 50% 50%, #c44569 30%, #546de5 60%);}
+
+    /* 사이즈 */
+    .closest-corner {
+        background-image: radial-gradient(closest-corner at 60% 50%, blue, green, yellow, black)
+    }
+
+    .closest-side {
+        background-image: radial-gradient(closest-side at 60% 50%, blue, green, yellow, black);
+    }
+
+
+    .farthest-corner {
+        
+        background-image: radial-gradient(farthest-corner at 60% 50%, blue, green, yellow, black);
+        
+    }
+
+
+
+    .farthest-side {
+        
+        background-image: radial-gradient(farthest-side at 60% 50%, blue, green, yellow, black);
+        /*                                                  x   y                 */
+        
+    }
+
+    /* 누적 그레디언트 */
+    .stacked-radial {
+       background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(78,62,106,1) 18%, rgba(149,120,173,1) 35%, rgba(0,212,255,1) 100%);
+       }
