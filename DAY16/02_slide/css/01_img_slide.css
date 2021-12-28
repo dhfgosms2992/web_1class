@@ -1,14 +1,14 @@
 
  
 
- section .slide  {
+ section.slide  {
     width: 4200px;
      /* 이미지 1400px x 3장 = 4200px */
     /* width: calc(1400*3); */
     position: relative;
 }
 
-section .slide ul {
+section.slide ul {
     list-style-type:none ;
     position: absolute;
     animation-name:slide;
