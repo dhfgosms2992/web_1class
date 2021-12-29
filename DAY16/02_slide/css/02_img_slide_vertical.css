@@ -1,0 +1,53 @@
+
+ 
+
+ section.slide  {
+    width: 4200px;
+     /* 이미지 1400px x 3장 = 4200px */
+    /* width: calc(1400*3); */
+    height: 600px;
+    position: relative;
+    /* 
+    overflow: hidden;  
+    속성 부여시 height 를 반드시 주어야함.
+    */
+    overflow: hidden;
+    
+}
+
+section.slide ul {
+    list-style-type:none ;
+    position: absolute;
+    animation-name:slide;
+    /* 
+    animation-name:slide; 
+    @keyframes 에 slide 키값을 네임 속성에 부여해
+    실행 가능하도록 구동
+     */
+    animation-duration: 20s;
+    animation-delay:5s;
+    animation-iteration-count: infinite;
+}
+
+/* section.slide 종속 선택자 */
+
+
+@keyframes slide {
+    /* @keyframes slide 이미지 구간을 성정 */
+    0% { top: 0px; }
+    33% { top: -600px; }
+    66% { top: -1200px; }
+    100% { top: 0; }
+}
+
+section.slide ul li {
+    
+    width: 1400px;
+    height: 600px;
+    box-sizing: border-box;
+}
+
+section.slide ul li img {
+    width: 100%;
+    height: 100%;
+} 
