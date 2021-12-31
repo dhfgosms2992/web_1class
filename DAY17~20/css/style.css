@@ -263,32 +263,110 @@ section.slide ul li img{
     100%{left:0;}
 } 
 
-/* section .title */
+/* 섹션 컨텐츠 section .title*/
 
-section .title {color: #000; text-align: center;}
-section .title h2 {font-size: 45px; margin-bottom: 5px; font-weight: normal;}
-section .title h2 span {color: #ff8342;}
-section .title p {font-size: 18px; color: #555;}
+section .title {
+    color: #000;
+    text-align: center;
+}
 
-/* section - contents */
+section .title h2 {
+    font-size: 45px;
+    margin-bottom: 5px;
+    font-weight: normal;
+}
 
-section.contents {background-color: #fff; padding: 80px 0;}
-section.contents ul {margin: 30px auto; width: 100%; border-bottom: 1px solid #000; overflow: hidden;}
-section.contents ul li {float: left; width: calc(100%/3); height: 100%;}
-section.contents ul li a { display:block; width: 100%; height: 100%;}
-section.contents ul li a p.img {width: 100%; overflow:hidden; height: 300px;}
-section.contents ul li a p.img img{width: 100%; height: 100%; transition: all 1s;}
-section.contents ul li a:hover p.img img{transform: scale(1.2); transition: all 1s;}
- 
+section .title h2 span {
+    color: #ff8342;
+}
 
-section.contents ul li a .text {padding: 30px;} 
-section.contents ul li a .text h3 {font-size: 20px; margin-bottom: 10px;}
-section.contents ul li a .text p {font-size: 16px; margin-bottom: 10px;}
+section .title p {
+    font-size: 18px;
+    color: #555;
+}
+
+
+/* section.content */
+section.contents {
+    background-color: #fff;
+    /* 위아래 80px; */
+    padding: 80px 0px;
+    border: 1px solid red;
+    box-sizing: border-box;
+}
+
+
+section.contents ul {
+    /* 위아래 30px */
+    margin: 30px auto;
+    width: 100%;
+    border-bottom: 1px solid #000;
+    overflow: hidden;
+}
+
+section.contents ul li {
+    float:left;
+    /* 백분율 에서 나누기3  이미지 3장 */
+    width: calc(100%/3);
+}
+
+section.contents ul li a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+section.contents ul li a p.img {
+    /* 
+    section 에 높이가 지정 되어 있지 않기때문에 
+    높이지정 
+     */
+    width: 100%;
+    height: 300px;
+    /* 
+    section.content ul li a:hover p.img img 
+    스케일을 주었기때문에 넘치면 가림 
+    */
+    overflow: hidden;
+} 
+
+
+section.contents ul li a p.img img {
+    width: 100%;
+    height: 100%;
+    /* 
+    section.content ul li a:hover p.img img 
+    스케일을 주고나서 돌아올때 에니메이션 작동.
+    */
+    transition: all 1s;
+}
+
+section.contents ul li a:hover p.img img {
+    transform: scale(1.2);
+    /* hover시 작동하는 원리  */
+    transition: all 1s;
+}
+
+section.contents ul li a .text {
+    padding: 30px;
+}
+
+section.contents ul li a .text h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+section.contents ul li a .text p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
 section.contents ul li a .text p.more {
     text-transform: uppercase;
     font-weight: bold;
-    padding-left:10px;
+    padding-left: 10px;
 }
+
 
 /* footer */
 footer { border-top: 1px solid #999; padding: 30px 0 50px;}
