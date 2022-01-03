@@ -1,0 +1,744 @@
+
+@charset "UTF-8";
+/* Notosans */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+/* font-family: 'Noto Sans KR', sans-serif; */
+
+/* 나눔 스퀘어 */
+@font-face {
+    /* font 스타일 외부 파일연결법 */
+    font-family: "NanumSquare_acB";
+    src:url(./fonts/NanumSquare_acB.ttf);
+}
+
+
+/* 
+12/30
+
+에러난 이유
+ul.gnb 종속 선택자를 ul .gnb 하위 선택자로 잘못 표기
+
+
+sidebar 에 position:fixed 의 정확학 위치값 표기 x
+top:0;
+left:0;
+
+
+.sidebar inner 
+폭을 지정안했다.
+ width: 50%;
+ text-align: center;
+
+
+
+ .sidebar .inner a 태그에
+ 넓이를 줘서 가운데 정렬이 안되었다. 
+ width : 80%;
+
+ */
+/* ------------------------------------------------------------- 
+12/31
+
+section.slide {
+     전체 가로 사이즈 1400px 
+    width: 4200px; 이미지 1400px x 3 장 = 4200px 
+
+    전체 가로 사이즈를 1400px x 3 으로 
+    4200px 로 맞춰야하는데 안 맞췄다.
+
+
+@media screen (max-width: 600px) {
+
+     section.slide {
+        width: 300vw;
+        300vw = width : 3000px;
+        이미지 3개 
+        1000 x 3 = 3000px;
+        높이를 뷰포트 단위로 바꿔서 창의 영역 크기로 바뀌었다.
+        height: 200vh;
+        
+     
+    }
+
+    section.slide ul li {
+        width: 100vw;
+        100vw = width: 1000px;
+        이미지 하나당  가로1000px 
+        높이를 뷰포트 단위로 바꿔서 창의 영역 크기로 바뀌었다.
+        height: 200vh;
+    }
+}
+
+
+01/03
+
+section.service .service-list li .card .card-img{
+     높이를 안줘서 info 태그 안에있는 contents 가 안들어갔음 
+    height: 200px;
+}
+
+
+*/
+
+
+/* 전체 영역  */
+.wrap {
+    /*  가로사이즈 */
+    width: 1400px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+/* alt + shift 정체 역역 복사  */
+
+/* 헤더 */
+/* 항상 종속 선택자 주의 (하위선택자로 종속선택자를 표기하는 경우가 많다 ***주의 */
+header {
+     /* 헤더 전체를 float 정렬 대신 flex 로 정렬 */
+    display: flex;
+    /* 아이템 사이에 공간을 두고 정렬  */
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+}
+header #gnb-logo {
+    width: 240px;
+    height: 90px;
+    background: url(../img/logo.png) no-repeat left center;
+    background-size: auto 90px;
+    text-indent: -9999px;
+}
+header nav ul.gnb{
+    height: 90px;
+}
+header nav ul.gnb li {
+    display:inline-block;
+    height: 90px;
+     /* 줄높이   line-height 하고 
+        높이하고 height 가능한 맞춰준다. */
+    line-height: 90px;
+     /* 위아래 0 좌우 30 */
+    padding: 0 30px;
+    /* padding 을 줄때는 반드시 box-sizing:border-box 속성 부여 */
+    box-sizing: border-box;
+    font-size: 1.2rem;
+}
+header nav ul.gnb li a {
+    font-family: "NanumSquare_acB";
+}
+
+header nav ul.gnb li:hover a {
+    color: cornflowerblue;
+    border-bottom: 2px solid cornflowerblue;
+    padding-bottom: 8px;
+}
+header .category {
+    height: 90px;
+    line-height: 90px;
+    padding:0 30px;
+    box-sizing: border-box;
+}
+
+/* btn 스타일 */
+header .category .btn {
+      /* 좌우 위아래 */
+    padding: 10px 40px;
+    background-color: cornflowerblue;
+    color:white;
+    cursor: pointer;
+}
+
+
+/* 사이드바 */
+.sidebar {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(64, 64, 64, 0.4);
+    position: fixed;
+    top:0;
+     /* 슬라이드 방향이 왼쪽에서 나옴 */
+    left:-100%;
+    transition: all 1s ease-in-out;
+     /* 전체를 숨기기 위해서 z-index opacity0; 부여 */
+    z-index: -1;
+    opacity:0;
+}
+
+.sidebar .inner {
+    position: absolute;
+     /* 가운데 정렬 */
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+     /* 가로 크기  */
+    width: 50%;
+    text-align: center;
+    color:white;
+}
+
+
+
+
+.sidebar .inner a {
+    font-size: 60px;
+    margin-bottom: 40px;
+    /* 사이드 메뉴 에있는 메뉴바를 세로 배치 */
+    display: block;
+    color:#ddd;
+}
+
+
+.sidebar .inner a:hover {
+     /* 글자 확대 */
+     transform: scale(1.2);
+     color:cornflowerblue;
+     transition: all 0.3s ease;
+}
+
+
+
+
+/* category 를 채크 했을때, 사이드바 */
+
+/* 가상 선택자  */
+/*  input[type 중 name 이 category인 타입을] 디스플레이 none 으로 없앤다. */
+input[name='category'] {display:none;}
+
+input#category:checked ~ .sidebar {
+     /* 
+     z-index: -1;
+    opacity: 0;
+    사이드바에 있던 z-index 와 opacity 가 종속 선택자인 input#category 를 채크했을때 sidebar
+    opacity z-index 변경
+     */
+    opacity: 1;
+    z-index: 3;
+     /* 
+    left: -100%; 인 값이 채크 되었을때 left:0; 값으로 왼쪽에서 오른쪽으로 슬라이드구동
+    슬라이드 방향이 왼쪽에서 나옴 
+    */
+    left:0;
+}
+
+.sidebar .close {
+     /* 브라우저를 기준으로  */
+     position: fixed;
+     top:5%;
+     right:10%;
+     color:white;
+     font-size: 40px;
+     cursor: pointer;
+}
+
+/* 이미지 슬라이드  */
+
+section.slide {
+    /* 전체 가로 사이즈 1400px */
+    width: 4200px; /* 이미지 1400px x 3 장 = 4200px */
+    height: 400px;
+    position: relative;
+    box-sizing: border-box;
+}
+
+section.slide ul {
+    position: absolute;
+    animation-name: slide;
+    /* 재생 시간 */
+    animation-duration: 20s;
+    /* 카운트 단위  infinite 무한 */
+    animation-iteration-count: infinite;
+}
+
+
+
+
+section.slide ul li {
+    float: left;
+    width: 1400px;
+    height: 400px;
+    box-sizing: border-box;
+}
+
+section.slide ul li img{
+    width: 100%;
+    height: 100%;
+}
+
+
+ @keyframes slide {
+    0%{ left: 0;}
+    33%{left:-1400px;}
+    66%{left: -2800px;}
+    100%{left:0;}
+} 
+
+/* 섹션 컨텐츠 section .title*/
+
+section .title {
+    color: #000;
+    text-align: center;
+}
+
+section .title h2 {
+    font-size: 45px;
+    margin-bottom: 5px;
+    font-weight: normal;
+}
+
+section .title h2 span {
+    color: #ff8342;
+}
+
+section .title p {
+    font-size: 18px;
+    color: #555;
+}
+
+
+/* section.content */
+section.contents {
+    background-color: #fff;
+    /* 위아래 80px; */
+    padding: 80px 0px;
+    box-sizing: border-box;
+}
+
+
+section.contents ul {
+    /* 위아래 30px */
+    margin: 30px auto;
+    width: 100%;
+   overflow: hidden;
+}
+
+section.contents ul li {
+    float:left;
+    /* 백분율 에서 나누기3  이미지 3장 */
+    width: calc(95%/3);
+    padding: 7px;
+    text-align: center;
+}
+
+section.contents ul li a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+section.contents ul li a p.img {
+    /* 
+    section 에 높이가 지정 되어 있지 않기때문에 
+    높이지정 
+     */
+    width: 100%;
+    height: 300px;
+    /* 
+    section.content ul li a:hover p.img img 
+    스케일을 주었기때문에 넘치면 가림 
+    */
+    overflow: hidden;
+} 
+
+
+section.contents ul li a p.img img {
+    width: 100%;
+    height: 100%;
+    /* 
+    section.content ul li a:hover p.img img 
+    스케일을 주고나서 돌아올때 에니메이션 작동.
+    */
+    transition: all 1s;
+}
+
+section.contents ul li a:hover p.img img {
+    transform: scale(1.2);
+    /* hover시 작동하는 원리  */
+    transition: all 1s;
+}
+
+
+
+
+
+
+section.contents ul li a .text {
+    padding: 50px;
+}
+
+section.contents ul li a .text h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+section.contents ul li a .text p {
+    padding: 10px 0px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+
+section.contents ul li a.more-box {
+
+    position: relative;
+}
+
+section.contents ul li  a.more-box  p.btn {
+    display: inline-block;
+    width: 300px;
+    background-color: cornflowerblue;
+    text-align: center;
+    border-radius: 20px;
+    font-size: 1.2rem;
+    color: #ddd;
+}
+
+section.contents ul li  a.more-box:hover p.btn {
+    color:white;
+    
+}
+
+
+
+
+
+
+
+/* 섹션 서비스 section -service  */
+
+section.service {
+    padding: 0 0 80px;
+}
+
+section.service .service-list {
+    /* 여백 */
+    margin-top: 50px;
+    
+    
+}
+section.service .service-list li {
+    width: calc(95%/5);
+    /* 95퍼센트에서 5컬럼 */
+    height: 400px;
+    /* 가로 배치 */
+    display:inline-block;
+    padding: 5px;
+    box-sizing: border-box;
+    
+}
+section.service .service-list li .card{
+    width: 100%;
+    height: 100%;
+    box-shadow: 10px 10px 10px #ddd;
+    transition: all 0.4s;
+    /* hover 전 작동 되는 transition 값 */
+    cursor: pointer;
+}
+
+
+
+
+
+section.service .service-list li .card .card-img img{
+    /* card 안에 들어가는 이미지 너비*/
+    /* width: calc(95%/5); */
+    width: 100%;
+    
+}
+
+
+section.service .service-list li .card .card-info {
+    padding: 8px;
+    position: relative;
+    height: 180px;
+    box-sizing: border-box;
+}
+
+section.service .service-list li .card .card-info h2{font-size: 1.4rem; margin-bottom: 5px;}
+
+section.service .service-list li .card .card-info p {font-size: 1.2rem; margin-bottom: 5px;}
+
+section.service .service-list li .card .card-info .star-box img {width: 16px; margin-right: -3px;}
+
+section.service .service-list li .card .card-info .star-box span {font-size: 0.8rem; line-height: 16px;}
+
+section.service .service-list li .card .card-info .btn {
+    display:inline-block;
+    position: absolute;
+    /* 
+    height: 180px; info 에 높이를 주어서 btn 위치 맞춤
+    */
+    right:20px;
+    bottom: 5px;
+    padding: 5px 10px;
+    background-color: cornflowerblue;
+    color:#ddd;
+    border-radius: 20px;
+}
+
+
+section.service .service-list li .card:hover {
+    transform: translateY(-20px);
+    transition: all 0.4s;
+    box-shadow: 15px 15px 10px #ddd;
+    
+    
+}
+
+
+section.service .service-list li .card:hover .btn {
+    color:white;
+}
+
+
+/* footer ==================================================================================*/
+footer {
+     border-top: 1px solid #999;
+     padding: 30px 0 50px;
+    }
+
+footer .inner {
+    width: 100%;
+    margin:0 auto;
+    overflow: hidden;
+}
+
+footer .inner .footer-logo {float:left;}
+
+footer .inner .footer-logo img {
+    /* 
+    filter: grayscale(100%); 
+    흑백으로 변경
+    */
+    filter: grayscale(100%);
+}
+
+footer .inner .address{
+    float:left;
+    margin-left: 50px;
+    margin-top: 10px;
+}
+
+footer .inner .address li:first-child {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+footer .inner .address li:last-child {color: #999;}
+
+footer .inner .list {
+    float:right;
+    margin-top: 10px;
+    margin-right: 50px;
+}
+
+footer .inner .list li {
+    float:left;
+     margin-left: 10px;
+    }
+
+footer .inner .list li a {
+    display:block; 
+    width: 100%; 
+    height: 100%; 
+    position: relative;
+}
+
+footer .inner .list li a:after {
+    content: "";
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: #ccc;
+    position: absolute;
+    left:-10px;
+    top:10px;
+}
+
+footer .inner .list li a:hover, 
+footer .inner .list li a:focus{
+  color: #ff8342; text-decoration: underline;
+}
+
+footer .inner .list li:last-child a {
+    font-weight: bold;
+}
+
+
+/* 모바일 햄버거 메뉴 */
+.mb-category {display: none;}
+
+/* 반응형 적용 ------------------------------------------------- */
+
+/* 모바일  */
+@media screen and (max-width: 600px) {
+    /*             0 ~ 600px */
+    .wrap {min-width: 320px; width: 95vw; margin: 0 auto;}
+    /* vw 전체 보이는 단위 % 비율  */
+
+    header {
+        position: relative;
+        min-width: 320px;
+        height: 40px;
+        width: 100%;
+        z-index: 10;
+        background-color: cornsilk;
+
+    }
+
+    header nav {display: none;}
+
+    header #gnb-logo {
+        width: 120px;
+        height: 40px;
+        background-size: auto 40px;;
+    }
+
+    header .category {display: none;}
+
+    .mb-category {display: block;}
+    .mb-btn {
+        line-height: 40px;
+        position: absolute;
+        right: 3%;
+        cursor: pointer;
+    }
+
+    
+
+
+    .sidebar {
+        width: 100%;
+        top:-100%;
+        left:0;
+         /* 슬라이드 방향이 왼쪽에서 나옴 */
+        
+        transition: all 1s ease-in-out;
+         /* 전체를 숨기기 위해서 z-index opacity0; 부여 */
+        z-index: -1;
+        opacity:0;
+        background-color: rgba(64, 64, 64, 0.9);
+    }
+
+    input#category:checked ~ .sidebar {
+        top:0;
+        left:0;
+    }
+   
+    .sidebar .inner a {font-size: 24px;}
+    .sidebar .close {font-size: 30px;}
+
+    section.slide {
+        width: 300vw;
+        /* height: auto; */
+        position: relative;
+        margin-bottom: 50px;
+    }
+
+    section.slide ul li {
+        width: 100vw;
+        /* 높이를 주지 않았다. */
+        /* height: 200px; */
+
+    }
+
+    section.contents ul li a .text {
+        text-align: center;
+    }
+
+
+
+   
+
+
+    @keyframes slide {
+        0% {left: 0;}
+        33% {left: -100vw;}
+        66% {left: -200vw;}
+        100% {left:0;}
+    }
+
+    /* section title 부터 ~ */
+
+    section .title h2  {
+        font-size: 1.4 rem;
+    }
+
+    section.contents {padding: 10px 0;}
+    /* 
+    section.contents ul li {width: 100%;} 
+    3 열씩 보이던 컨텐츠가 600 이하일때는 세로 정렬
+    */
+    section.contents ul li {width: 100%;}
+
+    section.contents ul li p.img {
+        height: 350px;
+        text-align: center;
+    }
+
+    section.contents ul li p.img img {width: 90%;}
+
+
+
+    section.service .service-list {
+        text-align: center;
+    }
+
+    section.service .service-list li {
+        margin-top:30px;
+        width: calc(85%/1);
+        height: auto;
+     
+    }
+
+
+    section.service .service-list li .card:hover {
+        transform:scale(1.1);
+        transition: all 0.4s;
+        box-shadow: 15px 15px 10px #ddd;
+        
+        
+    }
+
+
+    section.service .service-list li .card .card-info .btn {
+        right: 30px;
+        bottom:30px;
+        
+    }
+    
+    
+    section.service .service-list li .card:hover .btn {
+        color:white;
+        
+    }
+    
+
+    
+    footer  .inner .footer-logo {
+        /* float:left 속성을 제거 */
+        float:none;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    footer .inner .footer-logo img {height: 50px;}
+    footer .inner .address {
+        /* clear 주는 건 float 속성에 주는것이 아니라 
+        float 다음에 나오는 요소에 주는것 
+        */
+        float:none; 
+        margin: 0 auto; 
+        text-align: center; 
+        margin-bottom: 15px;
+    }
+    
+    footer .inner .list {text-align: center;}
+    footer .inner .list li {
+        display: inline-block;
+        float:none;
+    }
+    footer .inner .list li a {font-size: 0.62rem;}
+
+    footer .inner .list li a:after {top: 5px;}
+    
+}
+
