@@ -70,6 +70,14 @@ section.slide {
 }
 
 
+01/03
+
+section.service .service-list li .card .card-img{
+     높이를 안줘서 info 태그 안에있는 contents 가 안들어갔음 
+    height: 200px;
+}
+
+
 */
 
 
@@ -78,7 +86,6 @@ section.slide {
     /*  가로사이즈 */
     width: 1400px;
     margin: 0 auto;
-    border: 1px solid black; /* 지울 영역 */
     position: relative;
     overflow: hidden;
 }
@@ -137,6 +144,7 @@ header .category .btn {
     padding: 10px 40px;
     background-color: cornflowerblue;
     color:white;
+    cursor: pointer;
 }
 
 
@@ -291,7 +299,6 @@ section.contents {
     background-color: #fff;
     /* 위아래 80px; */
     padding: 80px 0px;
-    border: 1px solid red;
     box-sizing: border-box;
 }
 
@@ -300,14 +307,15 @@ section.contents ul {
     /* 위아래 30px */
     margin: 30px auto;
     width: 100%;
-    border-bottom: 1px solid #000;
-    overflow: hidden;
+   overflow: hidden;
 }
 
 section.contents ul li {
     float:left;
     /* 백분율 에서 나누기3  이미지 3장 */
-    width: calc(100%/3);
+    width: calc(95%/3);
+    padding: 7px;
+    text-align: center;
 }
 
 section.contents ul li a {
@@ -347,8 +355,13 @@ section.contents ul li a:hover p.img img {
     transition: all 1s;
 }
 
+
+
+
+
+
 section.contents ul li a .text {
-    padding: 30px;
+    padding: 50px;
 }
 
 section.contents ul li a .text h3 {
@@ -357,27 +370,178 @@ section.contents ul li a .text h3 {
 }
 
 section.contents ul li a .text p {
+    padding: 10px 0px;
     font-size: 16px;
+    box-sizing: border-box;
+}
+
+
+section.contents ul li a.more-box {
+
+    position: relative;
+}
+
+section.contents ul li  a.more-box  p.btn {
+    display: inline-block;
+    width: 300px;
+    background-color: cornflowerblue;
+    text-align: center;
+    border-radius: 20px;
+    font-size: 1.2rem;
+    color: #ddd;
+}
+
+section.contents ul li  a.more-box:hover p.btn {
+    color:white;
+    
+}
+
+
+
+
+
+
+
+/* 섹션 서비스 section -service  */
+
+section.service {
+    padding: 0 0 80px;
+}
+
+section.service .service-list {
+    /* 여백 */
+    margin-top: 50px;
+    
+    
+}
+section.service .service-list li {
+    width: calc(95%/5);
+    /* 95퍼센트에서 5컬럼 */
+    height: 400px;
+    /* 가로 배치 */
+    display:inline-block;
+    padding: 5px;
+    box-sizing: border-box;
+    
+}
+section.service .service-list li .card{
+    width: 100%;
+    height: 100%;
+    box-shadow: 10px 10px 10px #ddd;
+    transition: all 0.4s;
+    /* hover 전 작동 되는 transition 값 */
+    cursor: pointer;
+}
+
+
+
+
+
+section.service .service-list li .card .card-img img{
+    /* card 안에 들어가는 이미지 너비*/
+    /* width: calc(95%/5); */
+    width: 100%;
+    
+}
+
+
+section.service .service-list li .card .card-info {
+    padding: 8px;
+    position: relative;
+    height: 180px;
+    box-sizing: border-box;
+}
+
+section.service .service-list li .card .card-info h2{font-size: 1.4rem; margin-bottom: 5px;}
+
+section.service .service-list li .card .card-info p {font-size: 1.2rem; margin-bottom: 5px;}
+
+section.service .service-list li .card .card-info .star-box img {width: 16px; margin-right: -3px;}
+
+section.service .service-list li .card .card-info .star-box span {font-size: 0.8rem; line-height: 16px;}
+
+section.service .service-list li .card .card-info .btn {
+    display:inline-block;
+    position: absolute;
+    /* 
+    height: 180px; info 에 높이를 주어서 btn 위치 맞춤
+    */
+    right:20px;
+    bottom: 5px;
+    padding: 5px 10px;
+    background-color: cornflowerblue;
+    color:#ddd;
+    border-radius: 20px;
+}
+
+
+section.service .service-list li .card:hover {
+    transform: translateY(-20px);
+    transition: all 0.4s;
+    box-shadow: 15px 15px 10px #ddd;
+    
+    
+}
+
+
+section.service .service-list li .card:hover .btn {
+    color:white;
+}
+
+
+/* footer ==================================================================================*/
+footer {
+     border-top: 1px solid #999;
+     padding: 30px 0 50px;
+    }
+
+footer .inner {
+    width: 100%;
+    margin:0 auto;
+    overflow: hidden;
+}
+
+footer .inner .footer-logo {float:left;}
+
+footer .inner .footer-logo img {
+    /* 
+    filter: grayscale(100%); 
+    흑백으로 변경
+    */
+    filter: grayscale(100%);
+}
+
+footer .inner .address{
+    float:left;
+    margin-left: 50px;
+    margin-top: 10px;
+}
+
+footer .inner .address li:first-child {
+    font-weight: bold;
     margin-bottom: 10px;
 }
 
-section.contents ul li a .text p.more {
-    text-transform: uppercase;
-    font-weight: bold;
-    padding-left: 10px;
+footer .inner .address li:last-child {color: #999;}
+
+footer .inner .list {
+    float:right;
+    margin-top: 10px;
+    margin-right: 50px;
 }
 
+footer .inner .list li {
+    float:left;
+     margin-left: 10px;
+    }
 
-/* footer */
-footer { border-top: 1px solid #999; padding: 30px 0 50px;}
-footer .inner {width: 100%; margin:0 auto; overflow: hidden;}
-footer .inner .ftLogo {float:left;}
-footer .inner .adress{float:left; margin-left: 50px; margin-top: 10px;}
-footer .inner .adress li:first-child {font-weight: bold; margin-bottom: 10px;}
-footer .inner .adress li:last-child {color: #999;}
-footer .inner .list {float:right; margin-top: 10px; margin-right: 50px;}
-footer .inner .list li {float:left; margin-left: 10px;}
-footer .inner .list li a {display:block; width: 100%; height: 100%; position: relative;}
+footer .inner .list li a {
+    display:block; 
+    width: 100%; 
+    height: 100%; 
+    position: relative;
+}
+
 footer .inner .list li a:after {
     content: "";
     width: 4px;
@@ -388,10 +552,12 @@ footer .inner .list li a:after {
     left:-10px;
     top:10px;
 }
+
 footer .inner .list li a:hover, 
 footer .inner .list li a:focus{
   color: #ff8342; text-decoration: underline;
 }
+
 footer .inner .list li:last-child a {
     font-weight: bold;
 }
@@ -400,7 +566,7 @@ footer .inner .list li:last-child a {
 /* 모바일 햄버거 메뉴 */
 .mb-category {display: none;}
 
-/* 반응형 적용  */
+/* 반응형 적용 ------------------------------------------------- */
 
 /* 모바일  */
 @media screen and (max-width: 600px) {
@@ -436,8 +602,25 @@ footer .inner .list li:last-child a {
         cursor: pointer;
     }
 
+    
+
+
     .sidebar {
         width: 100%;
+        top:-100%;
+        left:0;
+         /* 슬라이드 방향이 왼쪽에서 나옴 */
+        
+        transition: all 1s ease-in-out;
+         /* 전체를 숨기기 위해서 z-index opacity0; 부여 */
+        z-index: -1;
+        opacity:0;
+        background-color: rgba(64, 64, 64, 0.9);
+    }
+
+    input#category:checked ~ .sidebar {
+        top:0;
+        left:0;
     }
    
     .sidebar .inner a {font-size: 24px;}
@@ -445,15 +628,25 @@ footer .inner .list li:last-child a {
 
     section.slide {
         width: 300vw;
-        height: 200px;
+        /* height: auto; */
         position: relative;
         margin-bottom: 50px;
     }
 
     section.slide ul li {
         width: 100vw;
-        height: 200px;
+        /* 높이를 주지 않았다. */
+        /* height: 200px; */
+
     }
+
+    section.contents ul li a .text {
+        text-align: center;
+    }
+
+
+
+   
 
 
     @keyframes slide {
@@ -464,6 +657,88 @@ footer .inner .list li:last-child a {
     }
 
     /* section title 부터 ~ */
+
+    section .title h2  {
+        font-size: 1.4 rem;
+    }
+
+    section.contents {padding: 10px 0;}
+    /* 
+    section.contents ul li {width: 100%;} 
+    3 열씩 보이던 컨텐츠가 600 이하일때는 세로 정렬
+    */
+    section.contents ul li {width: 100%;}
+
+    section.contents ul li p.img {
+        height: 350px;
+        text-align: center;
+    }
+
+    section.contents ul li p.img img {width: 90%;}
+
+
+
+    section.service .service-list {
+        text-align: center;
+    }
+
+    section.service .service-list li {
+        margin-top:30px;
+        width: calc(85%/1);
+        height: auto;
+     
+    }
+
+
+    section.service .service-list li .card:hover {
+        transform:scale(1.1);
+        transition: all 0.4s;
+        box-shadow: 15px 15px 10px #ddd;
+        
+        
+    }
+
+
+    section.service .service-list li .card .card-info .btn {
+        right: 30px;
+        bottom:30px;
+        
+    }
+    
+    
+    section.service .service-list li .card:hover .btn {
+        color:white;
+        
+    }
+    
+
+    
+    footer  .inner .footer-logo {
+        /* float:left 속성을 제거 */
+        float:none;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    footer .inner .footer-logo img {height: 50px;}
+    footer .inner .address {
+        /* clear 주는 건 float 속성에 주는것이 아니라 
+        float 다음에 나오는 요소에 주는것 
+        */
+        float:none; 
+        margin: 0 auto; 
+        text-align: center; 
+        margin-bottom: 15px;
+    }
+    
+    footer .inner .list {text-align: center;}
+    footer .inner .list li {
+        display: inline-block;
+        float:none;
+    }
+    footer .inner .list li a {font-size: 0.62rem;}
+
+    footer .inner .list li a:after {top: 5px;}
     
 }
 
