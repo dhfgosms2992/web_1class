@@ -381,7 +381,7 @@ section.contents ul li a.more-box {
     position: relative;
 }
 
-section.contents ul li  a.more-box  p.btn {
+section.contents ul li  a.more-box  p.btn  {
     display: inline-block;
     width: 300px;
     background-color: cornflowerblue;
@@ -391,7 +391,7 @@ section.contents ul li  a.more-box  p.btn {
     color: #ddd;
 }
 
-section.contents ul li  a.more-box:hover p.btn {
+section.contents ul li  a.more-box:hover p.btn  {
     color:white;
     
 }
